@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
+import './pages/home_page.dart'; //importing the home_page.dart file
 
-void main() {
-  runApp(const MyApp());
-}
+
+void main() => runApp(MyApp());
+
 
 class MyApp extends StatelessWidget {
   const MyApp({super.key});
@@ -11,11 +12,11 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
+      title: 'Gamify App',
       theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
+        brightness: Brightness.dark,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      home: HomePage(),
     );
   }
 }
