@@ -28,17 +28,21 @@ class _HomePageState extends State<HomePage> {
     );
   }
   Widget _featuredGamesWidget(){
-    return SizedBox(
-    height: _deviceHeight * 0.30 , 
+    return SizedBox( //this part is used for dynamically scale to a different screen size and adjust to different screen size
+    height: _deviceHeight * 0.50 , 
     width: _deviceWidth , 
-    child: Container(
+    child: PageView(
+      scrollDirection: Axis.horizontal, //scrolling horizontally
+      children: featuredGames.map((_game){
+        return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: NetworkImage(featuredGames[0].coverImage.url), 
-
+          image: NetworkImage(_game.coverImage.url), //NetworkImage
           fit: BoxFit.cover,
-        ),
-      ),
-    ) ,); //this part is used for dynamically scale to a different screen size and adjust to different screen size
+        ), //DecorationImage
+      ), // BoxDecoration
+    ); //container
+    }).toList(),
+    )); //listview // SizedBox
   }
 }
