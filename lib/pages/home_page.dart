@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart'; //give us alot useful material and functionality || most important class in flutter
-
+import '../widgets/scrollable_games_widget.dart'; //importing scrollable_games_widget.dart file
 import '../data.dart'; //importing data.dart file
 
 class HomePage extends StatefulWidget {
@@ -102,7 +102,9 @@ class _HomePageState extends State<HomePage> {
         children: <Widget>[_topBarWidget(),
         
         SizedBox(height: _deviceHeight * 0.13), //space between top bar and featured games info
-        _featuredGamesInfoWidget()],
+        _featuredGamesInfoWidget(),
+        ScrollableGamesWidget(_deviceHeight * 0.24, _deviceWidth,false, games), //nama dekat folder widgets
+        ],
       ),
     );
   }
