@@ -99,11 +99,24 @@ class _HomePageState extends State<HomePage> {
         mainAxisAlignment: MainAxisAlignment.start,
         mainAxisSize: MainAxisSize.max,
         crossAxisAlignment: CrossAxisAlignment.center,
-        children: <Widget>[_topBarWidget(),
-        
-        SizedBox(height: _deviceHeight * 0.13), //space between top bar and featured games info
-        _featuredGamesInfoWidget(),
-        ScrollableGamesWidget(_deviceHeight * 0.24, _deviceWidth,false, games), //nama dekat folder widgets
+        children: <Widget>[
+          _topBarWidget(),
+
+          SizedBox(
+            height: _deviceHeight * 0.13,
+          ), //space between top bar and featured games info
+          _featuredGamesInfoWidget(),
+          Padding(
+            padding: EdgeInsets.symmetric(vertical: _deviceHeight * 0.01),
+            child: ScrollableGamesWidget(
+              _deviceHeight * 0.24,
+              _deviceWidth,
+              false,
+              games,
+            ), //nama dekat folder widgets
+          ),
+          _featuredGamesBannerWidget(),
+          ScrollableGamesWidget(_deviceHeight * 0.22, _deviceWidth, false, games2),
         ],
       ),
     );
@@ -151,28 +164,46 @@ class _HomePageState extends State<HomePage> {
               fontSize: _deviceHeight * 0.030,
             ),
           ),
-          SizedBox(height: _deviceHeight *0.01), //space between text and icon
+          SizedBox(height: _deviceHeight * 0.01), //space between text and icon
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.center,
             mainAxisSize: MainAxisSize.max,
-            
+
             children:
                 featuredGames.map((_game) {
-                  bool _isActive = _game.title == featuredGames[_selectedGame].title;
-                  double circleRadius = _deviceHeight * 0.004; //height every image
+                  bool _isActive =
+                      _game.title == featuredGames[_selectedGame].title;
+                  double circleRadius =
+                      _deviceHeight * 0.004; //height every image
                   return Container(
-                    margin: EdgeInsets.only(right: _deviceWidth * 0.015),//space between icon
-                  height: circleRadius * 2,
-                  width: circleRadius * 2,
-                  decoration: BoxDecoration(
-                  color: _isActive ? Colors.green : Colors.grey, 
-                  borderRadius: BorderRadius.circular(100)
-                  ),
+                    margin: EdgeInsets.only(
+                      right: _deviceWidth * 0.015,
+                    ), //space between icon
+                    height: circleRadius * 2,
+                    width: circleRadius * 2,
+                    decoration: BoxDecoration(
+                      color: _isActive ? Colors.green : Colors.grey,
+                      borderRadius: BorderRadius.circular(100),
+                    ),
                   );
                 }).toList(),
           ),
         ],
+      ),
+    );
+  }
+
+  Widget _featuredGamesBannerWidget() {
+    return Container(
+      height: _deviceHeight * 0.13,
+      width: _deviceWidth,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(5),
+        image: DecorationImage(
+          fit: BoxFit.cover,
+          image: NetworkImage(featuredGames[3].coverImage.url),
+        ),
       ),
     );
   }
