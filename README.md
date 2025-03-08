@@ -2,6 +2,8 @@
 
 Gamify App is a Flutter-based game list interface that allows users to browse, search, and manage a collection of games. The app provides an intuitive UI and smooth user experience for game enthusiasts.
 
+i'm just create this for parcticing my skill using flutter :)
+
 ## Getting Started
 
 A few resources to get you started if this is your first Flutter project:
