@@ -4,7 +4,7 @@ A new Flutter project.
 
 ## Getting Started
 
-This project is a starting point for a Flutter application.
+Gamify App is a Flutter-based game list interface that allows users to browse, search, and manage a collection of games. The app provides an intuitive UI and smooth user experience for game enthusiasts.
 
 A few resources to get you started if this is your first Flutter project:
 
